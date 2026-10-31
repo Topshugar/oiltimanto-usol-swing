@@ -17,28 +17,14 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
 
-      - name: Setup Android SDK
-        uses: android-actions/setup-android@v3
-
       - name: Fix Project Structure
         run: |
-          ls -la
           echo "include ':app'" > settings.gradle
           cat settings.gradle
-          if [ ! -f "build.gradle" ]; then
-            echo "// root build.gradle" > build.gradle
-          fi
-          if [ ! -f "app/build.gradle" ]; then
-            echo "ERROR: app/build.gradle not found"
-            ls -R
-            exit 1
-          fi
-          chmod +x gradlew || echo "no gradlew"
+          chmod +x gradlew
 
-      - name: Build APK
-        run: |
-          ./gradlew projects
-          ./gradlew assembleDebug --stacktrace
+      - name: Build APK with Gradle
+        run: ./gradlew assembleDebug --stacktrace
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
