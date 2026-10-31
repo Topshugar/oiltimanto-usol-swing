@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#0F172A"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- HEADER -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="16dp">
+
+            <ImageView
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:src="@drawable/oiltimanto_logo"
+                android:layout_marginEnd="12dp"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="OILTIMANTO"
+                    android:textColor="#FACC15"
+                    android:textSize="22sp"
+                    android:textStyle="bold"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="USOIL SWING v1.0"
+                    android:textColor="#FFFFFF"
+                    android:textSize="12sp"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- EQUITY INPUTS -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="EQUITY & RISK"
+            android:textColor="#94A3B8"
+            android:textSize="12sp"
+            android:layout_marginBottom="8dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="3">
+
+            <EditText
+                android:id="@+id/edtEquity"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:layout_marginEnd="8dp"
+                android:background="#1E293B"
+                android:textColor="#FFFFFF"
+                android:hint="Equity $"
+                android:textColorHint="#64748B"
+                android:inputType="numberDecimal"
+                android:text="1000"
+                android:padding="12dp"/>
+
+            <EditText
+                android:id="@+id/edtRisk"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:layout_marginEnd="8dp"
+                android:background="#1E293B"
+                android:textColor="#FFFFFF"
+                android:hint="Risk %"
+                android:textColorHint="#64748B"
+                android:inputType="numberDecimal"
+                android:text="1"
+                android:padding="12dp"/>
+
+            <EditText
+                android:id="@+id/edtSL"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:background="#1E293B"
+                android:textColor="#FFFFFF"
+                android:hint="SL pts"
+                android:textColorHint="#64748B"
+                android:inputType="number"
+                android:text="200"
+                android:padding="12dp"/>
+        </LinearLayout>
+
+        <!-- MTF LIGHTS -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="MTF ALIGNMENT - 3/4 RULE"
+            android:textColor="#94A3B8"
+            android:textSize="12sp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="8dp"/>
+
+        <GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:columnCount="2"
+            android:rowCount="2">
+
+            <TextView
+                android:id="@+id/txtH1"
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:layout_margin="4dp"
+                android:gravity="center"
+                android:text="H1: --"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold"
+                android:background="#334155"/>
+
+            <TextView
+                android:id="@+id/txtH4"
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:layout_margin="4dp"
+                android:gravity="center"
+                android:text="H4: --"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold"
+                android:background="#334155"/>
+
+            <TextView
+                android:id="@+id/txtD1"
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:layout_margin="4dp"
+                android:gravity="center"
+                android:text="D1: --"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold"
+                android:background="#334155"/>
+
+            <TextView
+                android:id="@+id/txtW1"
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:layout_margin="4dp"
+                android:gravity="center"
+                android:text="W1: --"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold"
+                android:background="#334155"/>
+        </GridLayout>
+
+        <!-- LOT SIZE & STATUS -->
+        <TextView
+            android:id="@+id/txtLotSize"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:background="#1E293B"
+            android:padding="16dp"
+            android:text="LOT: 0.02 | Risk: $10.00"
+            android:textColor="#FACC15"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:gravity="center"/>
+
+        <TextView
+            android:id="@+id/txtStatus"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:background="#1E293B"
+            android:padding="12dp"
+            android:text="Status: Checking..."
+            android:textColor="#FFFFFF"
+            android:gravity="center"/>
+
+        <TextView
+            android:id="@+id/txtSignal"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:layout_marginTop="12dp"
+            android:gravity="center"
+            android:text="⏳ WAIT: 0/4 aligned"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:background="#EF4444"/>
+
+        <Button
+            android:id="@+id/btnCheck"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="16dp"
+            android:text="CHECK MTF + CALC LOT"
+            android:textStyle="bold"
+            android:backgroundTint="#FACC15"
+            android:textColor="#000000"/>
+
+    </LinearLayout>
+</ScrollView>
