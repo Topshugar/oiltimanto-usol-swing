@@ -1,20 +1,45 @@
 name: Build OILTIMANTO APK
-on: [push]
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-java@v4
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
         with:
           java-version: '17'
           distribution: 'temurin'
-      - name: Setup Gradle
-        uses: gradle/actions/setup-gradle@v3
-        with:
-          gradle-version: 8.5
+
+      - name: Setup Android SDK
+        uses: android-actions/setup-android@v3
+
+      - name: Fix Project Structure
+        run: |
+          ls -la
+          echo "include ':app'" > settings.gradle
+          cat settings.gradle
+          if [ ! -f "build.gradle" ]; then
+            echo "// root build.gradle" > build.gradle
+          fi
+          if [ ! -f "app/build.gradle" ]; then
+            echo "ERROR: app/build.gradle not found"
+            ls -R
+            exit 1
+          fi
+          chmod +x gradlew || echo "no gradlew"
+
       - name: Build APK
-        run: gradle :app:assembleDebug
+        run: |
+          ./gradlew projects
+          ./gradlew assembleDebug --stacktrace
+
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
