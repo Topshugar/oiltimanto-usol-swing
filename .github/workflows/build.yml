@@ -14,7 +14,7 @@ jobs:
         with:
           gradle-version: 8.5
       - name: Build APK
-        run: gradle assembleDebug
+        run: gradle :app:assembleDebug
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
